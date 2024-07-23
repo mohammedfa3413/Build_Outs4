@@ -1,9 +1,18 @@
 import './App.css';
+import {useState} from "react"
+import SearchBar from './Components/SearchBar/SearchBar';
+import WeatherDisplay from './Components/WeatherDisplay/WeatherDisplay';
 
 function App() {
+  const [city,setcity] = useState("");
+
+  const handelSearch = (e) =>{
+    setcity(e);
+  }
   return (
     <>
-      <h1>Hi!</h1>
+     <SearchBar onSearch={handelSearch}/>
+     <WeatherDisplay city={city}/>
     </>
   );
 }
